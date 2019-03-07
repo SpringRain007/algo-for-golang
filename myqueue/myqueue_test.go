@@ -3,7 +3,7 @@ package myqueue
 import "testing"
 
 func TestMyqueue_Enqueue(t *testing.T) {
-	q :=NewQueue(5)
+	q := NewQueue(5)
 	q.Enqueue("a")
 	q.Print()
 	q.Enqueue("b")
@@ -19,7 +19,7 @@ func TestMyqueue_Enqueue(t *testing.T) {
 }
 
 func TestMyqueue_Dequeue(t *testing.T) {
-	q :=NewQueue(5)
+	q := NewQueue(5)
 	q.Enqueue("a")
 	q.Enqueue("b")
 	q.Enqueue("c")

@@ -3,34 +3,34 @@ package mylinkedlist
 import "fmt"
 
 type LinkNode struct {
-	next *LinkNode
+	next  *LinkNode
 	value interface{}
 }
 
 func newNode(v interface{}) *LinkNode {
 	return &LinkNode{
-		next:nil,
-		value:v,
+		next:  nil,
+		value: v,
 	}
 }
 
 type LinkList struct {
-	head *LinkNode
+	head   *LinkNode
 	length uint32
 }
 
 func NewLinkList() *LinkList {
 	return &LinkList{
-		head:nil,
-		length:0,
+		head:   nil,
+		length: 0,
 	}
 }
 
-func (this *LinkList)GetLength() uint32 {
+func (this *LinkList) GetLength() uint32 {
 	return this.length
 }
 
-func (this *LinkList)GetTail() *LinkNode {
+func (this *LinkList) GetTail() *LinkNode {
 	if this.head == nil {
 		return nil
 	}
@@ -43,7 +43,7 @@ func (this *LinkList)GetTail() *LinkNode {
 	}
 }
 
-func (this *LinkList)PushBack(v interface{}) bool {
+func (this *LinkList) PushBack(v interface{}) bool {
 	tail := this.GetTail()
 	if tail == nil {
 		this.head = newNode(v)
@@ -56,7 +56,7 @@ func (this *LinkList)PushBack(v interface{}) bool {
 	return true
 }
 
-func (this *LinkList)PushFront(v interface{}) bool {
+func (this *LinkList) PushFront(v interface{}) bool {
 	if this.head == nil {
 		this.head = newNode(v)
 		this.length += 1
@@ -69,7 +69,7 @@ func (this *LinkList)PushFront(v interface{}) bool {
 	return true
 }
 
-func (this *LinkList)PrintList() {
+func (this *LinkList) PrintList() {
 	if this.length == 0 || this.head == nil {
 		return
 	}
@@ -78,13 +78,13 @@ func (this *LinkList)PrintList() {
 		if tmp == nil {
 			break
 		}
-		fmt.Printf("%v ",tmp.value)
+		fmt.Printf("%v ", tmp.value)
 		tmp = tmp.next
 	}
 }
 
-func (this *LinkList)Reverse() {
-	if this.length == 0 || this.length ==1 {
+func (this *LinkList) Reverse() {
+	if this.length == 0 || this.length == 1 {
 		return
 	}
 	oldhead := this.head

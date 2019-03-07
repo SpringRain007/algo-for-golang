@@ -7,18 +7,16 @@ package sort
 
 */
 
-
-
 //冒泡排序，原地排序，稳定，最好情况O(n),最坏情况O(n^2)，平均时间复杂度O(n^2)
-func BubbleSort(a []int,n int) {
+func BubbleSort(a []int, n int) {
 	if n <= 1 {
-		return ;
+		return
 	}
-	for i:=0;i<n;i++ {
+	for i := 0; i < n; i++ {
 		flag := false
-		for j:=0;j<n-i-1 ;j++  {
+		for j := 0; j < n-i-1; j++ {
 			if a[j] > a[j+1] {
-				a[j],a[j+1] = a[j+1],a[j]
+				a[j], a[j+1] = a[j+1], a[j]
 				flag = true
 			}
 		}
