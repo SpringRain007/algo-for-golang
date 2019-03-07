@@ -23,5 +23,8 @@ func TestBinarySearch(t *testing.T) {
 	}
 	fmt.Println(a)
 	fmt.Printf("found a[%d]=%d \n",ret,a[ret])
+}
 
+func TestGetSquareRoot(t *testing.T) {
+	fmt.Println(GetSquareRoot(1.11111))
 }
