@@ -25,6 +25,104 @@ func BinarySearch(a []int, v int) int {
 	return -1
 }
 
+//以下为二分法的变种问题:
+
+//1.查找数组第一个等于给定元素的的值
+func BinarySearchFirst(a []int, v int) int {
+	n := len(a)
+	low := 0
+	high := n - 1
+	for {
+		if low > high {
+			break
+		}
+		mid := low + (high-low)>>1
+		if a[mid] > v {
+			high = mid - 1
+		} else if a[mid] < v {
+			low = mid + 1
+		} else {
+			if a[mid] == 0 || a[mid-1] != v {
+				return mid
+			} else {
+				high = mid - 1
+			}
+		}
+	}
+	return -1
+}
+
+//2.查找数组最后一个等于给定元素的的值
+func BinarySearchLast(a []int, v int) int {
+	n := len(a)
+	low := 0
+	high := n - 1
+	for {
+		if low > high {
+			break
+		}
+		mid := low + (high-low)>>1
+		if a[mid] > v {
+			high = mid - 1
+		} else if a[mid] < v {
+			low = mid + 1
+		} else {
+			if mid == n-1 || a[mid+1] != v {
+				return mid
+			} else {
+				low = mid + 1
+			}
+		}
+	}
+	return -1
+}
+
+//3.查找数组第一个大于等于给定元素的的值
+func BinarySearchFirstEx(a []int, v int) int {
+	n := len(a)
+	low := 0
+	high := n - 1
+	for {
+		if low > high {
+			break
+		}
+		mid := low + (high-low)>>1
+		if a[mid] >= v {
+			if mid == 0 || a[mid-1] < v {
+				return mid
+			} else {
+				high = mid - 1
+			}
+		} else {
+			low = mid + 1
+		}
+	}
+	return -1
+}
+
+//4.查找数组最后一个小于等于给定元素的的值
+func BinarySearchLastEx(a []int, v int) int {
+	n := len(a)
+	low := 0
+	high := n - 1
+	for {
+		if low > high {
+			break
+		}
+		mid := low + (high-low)>>1
+		if a[mid] <= v {
+			if mid == n-1 || a[mid+1] > v {
+				return mid
+			} else {
+				low = mid + 1
+			}
+		} else {
+			high = mid - 1
+		}
+	}
+	return -1
+}
+
 func GetSquareRoot(s float64) float64 {
 	if s <= 0 {
 		return 0
