@@ -17,6 +17,18 @@ func TestQuickSort(t *testing.T) {
 	fmt.Println(a)
 }
 
+func TestSelectK(t *testing.T) {
+	var a []int
+	rand.NewSource(time.Now().UnixNano())
+	for i:=0;i<20 ;i++  {
+		a = append(a,rand.Intn(100))
+	}
+	v := SelectK(a,8)
+	fmt.Printf("第 8 大的元素:%d \n",v)
+	QuickSort(a,len(a))
+	fmt.Println(a)
+}
+
 func BenchmarkQuickSort(b *testing.B) {
 	rand.NewSource(time.Now().UnixNano())
 	var a []int

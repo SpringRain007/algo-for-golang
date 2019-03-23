@@ -16,6 +16,7 @@ func main() {
 	b := a
 	c := a
 	d := a
+	e := a
 	start := time.Now()
 	sort.BubbleSort(a[:],len(a))
 	fmt.Printf("bubble sort cost %q\n",time.Now().Sub(start))
@@ -28,4 +29,7 @@ func main() {
 	start3 := time.Now()
 	sort.QuickSort(d[:],len(d))
 	fmt.Printf("quick sort cost %q\n",time.Now().Sub(start3))
+	start4 := time.Now()
+	sort.MergeSort(e[:],len(e))
+	fmt.Printf("merge sort cost %q\n",time.Now().Sub(start4))
 }
