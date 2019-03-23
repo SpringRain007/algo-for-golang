@@ -2,22 +2,22 @@ package mystack
 
 type Mystack struct {
 	array []interface{}
-	size int
+	size  int
 	count int
 }
 
-func NewStack(n int) (*Mystack,bool) {
+func NewStack(n int) (*Mystack, bool) {
 	if n <= 0 {
-		return nil,false
+		return nil, false
 	}
 	return &Mystack{
-		array:make([]interface{},n),
-		size:n,
-		count:0,
-	},true
+		array: make([]interface{}, n),
+		size:  n,
+		count: 0,
+	}, true
 }
 
-func (this *Mystack)Push(v interface{}) bool {
+func (this *Mystack) Push(v interface{}) bool {
 	if this.size <= 0 {
 		return false
 	}
@@ -25,7 +25,7 @@ func (this *Mystack)Push(v interface{}) bool {
 		//fmt.Printf("stack is full! can not push!")
 		//return false
 		//支持动态扩容
-		this.array = append(this.array,v)
+		this.array = append(this.array, v)
 		this.size = cap(this.array)
 		this.count = len(this.array)
 		return true
@@ -35,7 +35,7 @@ func (this *Mystack)Push(v interface{}) bool {
 	return true
 }
 
-func (this *Mystack)Pop() (v interface{}) {
+func (this *Mystack) Pop() (v interface{}) {
 	if this.count <= 0 {
 		return nil
 	}
@@ -45,10 +45,10 @@ func (this *Mystack)Pop() (v interface{}) {
 	return v
 }
 
-func (this *Mystack)Size() int {
+func (this *Mystack) Size() int {
 	return this.size
 }
 
-func (this *Mystack)Count() int {
+func (this *Mystack) Count() int {
 	return this.count
 }
